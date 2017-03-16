@@ -1,10 +1,13 @@
 version: '1.0.{build}'
 
 configuration:
-- Debug
 - Release
 
 platform: Any CPU
+
+branches:
+  only:
+  - master
 
 environment:
   # Don't report back to the mothership
@@ -25,6 +28,7 @@ assembly_info:
   
 build_script:
 - dotnet build "src\dotnet-make" -c %CONFIGURATION% --no-dependencies --version-suffix %LABEL%
+- ps: gc "src\dotnet-make\Properties\AssemblyInfo.cs"
 
 after_build:
 - dotnet pack "src\dotnet-make" -c Release
