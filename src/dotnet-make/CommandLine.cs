@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using NDesk.Options;
 
 namespace make
@@ -44,8 +45,20 @@ namespace make
         {
             var input = "";
             var options = new List<string>();
+            var arguments = remaining.AsEnumerable();
 
-            foreach (var arg in remaining)
+            if (Program == null)
+            {
+                Program = remaining.FirstOrDefault(a => !a.StartsWith("/") && !a.StartsWith("/"));
+                if (Program == null)
+                {
+                    Console.Error.WriteLine("Wrong argument count. Please, use the -t switch to specify a valid program name.");
+                    Environment.Exit(1);
+                }
+                arguments = remaining.Skip(1);
+            }
+
+            foreach (var arg in arguments)
             {
                 if (arg.StartsWith("/") || arg.StartsWith("-"))
                     options.Add(arg);
