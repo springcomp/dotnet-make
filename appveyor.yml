@@ -27,7 +27,7 @@ assembly_info:
   assembly_informational_version: '{version}'
   
 build_script:
-- ps: src\dotnet-make\update_version.ps1
+- ps: C:\Projects\dotnet-make\src\dotnet-make\update_version.ps1
 - dotnet build "src\dotnet-make" -c %CONFIGURATION% --no-dependencies --version-suffix %LABEL%
 
 after_build:
