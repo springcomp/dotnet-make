@@ -1,5 +1,4 @@
 ﻿{
-    "version": "$(appveyor_build_version)",
     "buildOptions": {
         "emitEntryPoint": true,
         "outputName": "dotnet-make"
