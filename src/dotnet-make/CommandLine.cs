@@ -43,6 +43,8 @@ namespace make
 
         private void ParseRemainingArguments(List<string> remaining)
         {
+            // canonicalizing paths
+
             var input = "";
             var options = new List<string>();
             var arguments = remaining.AsEnumerable();

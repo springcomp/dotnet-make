@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "dotnet-make": {
+      "commandName": "Project",
+      "commandLineArgs": "E:\\Projects\\JmesPath.Net\\src\\jmespath.net/../../../bin/dotnet-gplex.dll /unicode /out:E:\\Projects\\JmesPath.Net\\src\\jmespath.net/JmesPathScanner.cs E:\\Projects\\JmesPath.Net\\src\\jmespath.net/JmesPathScanner.lex",
+      "workingDirectory": "E:\\Projects\\Jmespath.Net"
+    }
+  }
+}
