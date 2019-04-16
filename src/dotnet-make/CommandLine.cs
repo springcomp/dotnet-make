@@ -55,6 +55,7 @@ namespace make
                     Console.Error.WriteLine("Wrong argument count. Please, use the -t switch to specify a valid program name.");
                     Environment.Exit(1);
                 }
+                Program = Path.GetFullPath(Program);
                 arguments = remaining.Skip(1);
             }
 
@@ -68,7 +69,8 @@ namespace make
                     options.Add(arg);
             }
 
-            InputFile = input;
+            InputFile = Path.GetFullPath(input);
+            OutputFile = Path.GetFullPath(OutputFile);
             Arguments = options.ToArray();
         }
     }
